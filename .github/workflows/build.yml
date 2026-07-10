@@ -105,10 +105,10 @@ jobs:
       - name: Package module
         run: |
           cd "${{ matrix.module }}/build/package"
-          zip -r "${{ github.workspace }}/${{ matrix.module }}-linux.zip" .
+          zip -r "../${{ matrix.module }}-linux.zip" .
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.module }}-linux
-          path: ${{ matrix.module }}-linux.zip
+          path: ${{ matrix.module }}/build/${{ matrix.module }}-linux.zip
